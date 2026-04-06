@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>tambah tanaman</title>
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>form tambah tanaman</h1>
+    
+    <form id="formtambah">
+      <label>tanaman</label>
+      <input type="text" id="namatanaman" />
+      
+      <label>warna</label>
+      <input type="text" id="warna">
+      
+      <label>jenis</label>
+      <input type="text" id="jenis">
+      <select id="jenis">
+        <option value="perdu">perdu</option>
+        <option value="kayu">kayu</option>
+        <<option value="herbal">herbal</option>
+      </select>
+      
+      <button id="tombolSimpan" type="submit">Simpan</button>
+    </form>
+    
+    <a href="daftar.html">daftar tanaman</a>
+  </div>
+  
+  <script type="module">
+    import { tambahtanaman } from './main.js'
+    
+    // mengirimkan data tanaman dari form
+    const formtambah = document.getElementById('formtambah')
+    
+    // event ketika form disubmit (dikirim)
+    formtambah.addEventListener('submit', function(e) {
+      // mencegah reload halaman
+      e.preventDefault()
+      
+      // eksekusi fungsi tambah data tanaman
+      tambahtanaman()
+    })
+  </script>
+</body>
+
+</html>
