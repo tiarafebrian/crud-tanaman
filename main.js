@@ -114,3 +114,25 @@ export async function tambahtanaman(data) {
   // alihkan ke halaman daftar tanaman
   window.location.href = 'daftar.html'
 }
+
+ //fungsi untuk mengambil data tanaman bedasarkan id
+ //agar data ditampilkan di form. ubah
+ export async function ambiltanaman(id) {
+   const docRef = doc(db, "tanaman", id)
+   const docSnap = await getDoc(docRef)
+   
+   return await docSnap.data()
+ }
+ 
+ //fungsi untuk mengubah data tanaman
+ export async function ubahtanaman(id, namatanaman, warna, jenis) {
+   // mengubah data di firestore
+   await updateDoc(doc(db, "tanaman", id), {
+     namatanaman: tanaman,
+     warna: warna,
+     jenis: jenis,
+   })
+   
+   //alihkan ke halaman daftar tanaman
+   window.location.href = 'daftar.html'
+ }
