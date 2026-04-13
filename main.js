@@ -77,7 +77,7 @@ export async function daftartanaman() {
     tombolHapus.textContent = 'Hapus'
     tombolHapus.className = 'button delete'
     tombolHapus.onclick = async () => {
-      await hapustanaman(id)
+      await hapusTanaman(id)
     }
     
     //tambahkan elemen ke dalam kolom aksi
@@ -136,3 +136,15 @@ export async function tambahtanaman(data) {
    //alihkan ke halaman daftar tanaman
    window.location.href = 'daftar.html'
  }
+ 
+ //fungsi untuk menghapus data harga
+export async function hapusTanaman(id) {
+  if (!confirm("yakin ingin menghapus data ini?")) return
+  //menghapus dokumen harga berdasarkan id
+  await deleteDoc(doc(db, "tanaman", id))
+  
+  // refresh data harga
+  await daftartanaman()
+}
+ 
+ 
